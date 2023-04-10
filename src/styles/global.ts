@@ -6,8 +6,10 @@ export const GlobalStyle = createGlobalStyle`
     --shape: #fff;
     
     --red: #e52e4d;
+    --red-light: #f7cbd2;
     --blue: #5428cc;
-    --green: #33cc95  ;
+    --green: #33cc95;
+    --green-light: #c4f2e2;
 
     --blue-light: #6933ff;
 
@@ -75,6 +77,7 @@ export const GlobalStyle = createGlobalStyle`
   .react-modal-close{
     background: transparent;
     transition: 200ms;
+    border: none;
     &:hover {
       filter: brightness(0.8);
     }
