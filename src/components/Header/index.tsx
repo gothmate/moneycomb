@@ -5,7 +5,10 @@ export function Header() {
   return (
     <Container>
       <Content>
-        <img src={Logo} alt="moneycomb" />
+        <div className='logo'>
+          <img src={Logo} alt="moneycomb" />
+          <h1>Moneycomb</h1>
+        </div>
         <button type="button">
           Nova Transação
         </button>

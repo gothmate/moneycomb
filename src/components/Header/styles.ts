@@ -13,6 +13,19 @@ export const Content = styled.div`
   justify-content: space-between;
   padding: 2rem 1rem 10rem;
 
+  .logo {
+    display: flex;
+    color: var(--shape);
+    font-size: 1rem;
+    font-weight: 400;
+    justify-content: flex-start;
+    align-items: center;
+
+    & h1 {
+      margin-left: -7rem;
+    }
+  }
+
   button {
     font-size: 1rem;
     color: var(--shape);
