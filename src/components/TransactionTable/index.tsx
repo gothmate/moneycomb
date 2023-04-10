@@ -1,12 +1,30 @@
-import { useEffect } from "react";
+import { format } from 'date-fns'
+import { useEffect, useState } from "react";
 import { Container } from "./styles";
 import { api } from "../../services/api";
 
+interface Transactions {
+  amount: number;
+  category: string;
+  id: number;
+  title: string;
+  type:  string;
+  createdAt: string;
+}
+
+
 export function TransactionTable() {
+
+  const [transactions, setTransactions] = useState<Transactions[]>([])
+
+  function convertDate(transaction:any) {
+    const createdAt = format(new Date(transaction.createdAt), 'dd/MM/yyyy') 
+    return createdAt 
+  }
 
   useEffect(() => {
     api.get('transactions')
-      .then(response => console.log(response.data))
+      .then(response => setTransactions(response.data))
   }, [])
 
   return (
@@ -22,18 +40,14 @@ export function TransactionTable() {
         </thead>
 
         <tbody>
-          <tr>
-            <td>Desenvolvimento de website</td>
-            <td className="deposit">R$12.000,00</td>
-            <td>Desenvolvimento</td>
-            <td>20/02/2023</td>
-          </tr> 
-          <tr>
-            <td>Pagamento do Aluguel</td>
-            <td className="withdraw">-R$1.500,00</td>
-            <td>Casa</td>
-            <td>05/02/2023</td>
-          </tr>
+          {transactions.map(transaction => (
+            <tr key={transaction.id}>
+              <td>{transaction.title}</td>
+              <td className={ transaction.type}>R${transaction.amount}</td>
+              <td>{transaction.category}</td>
+              <td>{convertDate(transaction)}</td>
+            </tr> )
+          )}
         </tbody>
       </table>
     </Container>
