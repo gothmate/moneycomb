@@ -35,6 +35,22 @@ createServer({
 					category: 'Food',
 					createdAt: new Date('2023-04-03T09:22:30.017Z'),
 				},
+				{
+					amount: 458.9,
+					category: "Compras",
+					createdAt: "2023-04-11T01:04:50.587Z",
+					id: 4,
+					title: "Supermercado",
+					type: "withdraw",
+				},
+				{
+					amount: 1950.9,
+					category: "Dev",
+					createdAt: "2023-04-11T01:14:28.768Z",
+					id: 5,
+					title: "Site Freela",
+					type: "deposit",
+				},
 			],
 		});
 	},

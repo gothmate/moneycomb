@@ -10,14 +10,6 @@ interface Transaction {
 	createdAt: string;
 }
 
-// interface TransactionInput {
-//   amount: number
-// 	category: string
-// 	title: string
-// 	type: string
-// 	createdAt: string
-// }
-
 type TransactionInput = Omit<Transaction, 'id' | 'createdAt'>
 
 interface TransactionsProviderProps {
